@@ -8,7 +8,21 @@ const WEEK = [
   'Jueves',
   'Viernes',
   'Sábado'
-]
+];
+const MONTHS = [
+  'Enero',
+  'Febrero',
+  'Marzo',
+  'Abril',
+  'Mayo',
+  'Junio',
+  'Julio',
+  'Agosto',
+  'Septiembre',
+  'Octubre',
+  'Noviembre',
+  'Diciembre',
+];
 
 
 
@@ -49,13 +63,25 @@ function getDay(whichDay) {
 
 
 
+function getCurrentMonthAndYear() {
+  const today = getNow();
+  const month = today.getMonth();
+  const year = today.getFullYear();
+  return `${MONTHS[month]} ${year}`;
+}
+
+
+
+
 
 function initToday(wrap) {
   const todayContainer = wrap.querySelector('.js__today');
   const tomorrowContainer = wrap.querySelector('.js__tomorrow');
+  const monthContainer = wrap.querySelector('.js__month');
 
   todayContainer.innerText = formatDay(getDay('today'));
-  tomorrowContainer.innerText = formatDay(getDay('tomorrow')); 
+  tomorrowContainer.innerText = formatDay(getDay('tomorrow'));
+  monthContainer.innerText = getCurrentMonthAndYear();
 }
 
 
